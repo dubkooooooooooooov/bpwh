@@ -1,7 +1,7 @@
 seen = set()
 duplicates = set()
 
-with open("whitelist.txt", "r", encoding="utf-8") as f:
+with open("working_vpn.txt", "r", encoding="utf-8") as f:
     for line in f:
         line = line.strip()
         if line in seen:
@@ -9,6 +9,6 @@ with open("whitelist.txt", "r", encoding="utf-8") as f:
         else:
             seen.add(line)
 
-with open("whitelist2.txt", "w", encoding="utf-8") as f:
+with open("working_vpn2.txt", "w", encoding="utf-8") as f:
     for line in seen:
         f.write(line + "\n")
