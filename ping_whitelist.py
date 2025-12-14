@@ -9,13 +9,16 @@ def extract_host(data: str) -> str | None:
         return None
 
 def test_ping(host):
-    response = ping(host, timeout=0.5)
-    if response is not None:
-        print(f"Ping to {host} successful, round-trip time: {response} ms")
-        return True
-    else:
+    try:
+        response = ping(host, timeout=0.5)
+        if response is not None:
+            print(f"Ping to {host} successful, round-trip time: {response} ms")
+            return True
+        else:
+            print(f"Ping to {host} failed")
+            return False
+    except Exception:
         print(f"Ping to {host} failed")
-        return False
 
 file = open("whitelist.txt", "r")
 lines = file.readlines()
