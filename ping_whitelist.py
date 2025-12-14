@@ -1,4 +1,3 @@
-import re
 from ping3 import ping
 from urllib.parse import urlparse
 
@@ -10,7 +9,7 @@ def extract_host(data: str) -> str | None:
         return None
 
 def test_ping(host):
-    response = ping(host)
+    response = ping(host, timeout=1)
     if response is not None:
         print(f"Ping to {host} successful, round-trip time: {response} ms")
         return True
