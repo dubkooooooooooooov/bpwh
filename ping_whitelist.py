@@ -9,7 +9,7 @@ def extract_host(data: str) -> str | None:
         return None
 
 def test_ping(host):
-    response = ping(host, timeout=500, unit="ms")
+    response = ping(host, timeout=0.5)
     if response is not None:
         print(f"Ping to {host} successful, round-trip time: {response} ms")
         return True
