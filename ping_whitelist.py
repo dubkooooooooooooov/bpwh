@@ -9,8 +9,8 @@ def test_ping(host):
         else:
             print(f"Ping to {response.text} failed")
             return False
-    except Exception:
-        print(f"Ping failed")
+    except Exception as e:
+        print(f"Ping failed with error: {e}")
         return False
 
 file = open("whitelist.txt", "r")
@@ -18,6 +18,8 @@ lines = file.readlines()
 file.close()
 
 out_file = open("working_vpn.txt", "w")
+out_file.write("#profile-update-interval: 1 \n")
+out_file.write("#profile-title: Ускоритель роблоксааа\n")
 
 c = 0
 for line in lines:
